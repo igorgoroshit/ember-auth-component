@@ -1,0 +1,19 @@
+{
+  "name": "ember-auth",
+  "version": "1.0.0",
+  "authors": [
+    "Igor Goroshit <igor@webt.co.il>"
+  ],
+  "description": "ember auth addon",
+  "keywords": [
+    "auth"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
