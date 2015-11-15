@@ -7,6 +7,8 @@ define('ember-simple-auth/configuration', ['exports', 'ember'], function (export
     routeIfAlreadyAuthenticated: 'index',
     serverTokenEndpoint: 'login',
     tokenAttributeName: 'token',
+    cookieName: 'ember_simple_auth:session',
+    localStorageKey: 'ember_simple_auth:session',
     baseURL: null
   };
 
