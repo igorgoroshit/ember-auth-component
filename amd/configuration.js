@@ -4,7 +4,10 @@ define('ember-simple-auth/configuration', ['exports', 'ember'], function (export
   var DEFAULTS = {
     authenticationRoute: 'login',
     routeAfterAuthentication: 'index',
-    routeIfAlreadyAuthenticated: 'index'
+    routeIfAlreadyAuthenticated: 'index',
+    serverTokenEndpoint: 'login',
+    tokenAttributeName: 'token',
+    baseURL: null
   };
 
   /**
