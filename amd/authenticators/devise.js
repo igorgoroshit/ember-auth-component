@@ -27,7 +27,7 @@ define('ember-simple-auth/authenticators/devise', ['exports', 'ember', './base']
       @default '/users/sign_in'
       @public
     */
-    serverTokenEndpoint: '/users/sign_in',
+    serverTokenEndpoint: 'login',
 
     /**
       The devise resource name. __This will be used in the request and also be
