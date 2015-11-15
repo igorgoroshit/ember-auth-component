@@ -106,6 +106,9 @@ define('ember-simple-auth/mixins/application-route-mixin', ['exports', 'ember', 
       if (!_ember['default'].testing) {
         window.location.replace(_configuration['default'].baseURL);
       }
-    }
+    },
+
+    sessionRestored: function sessionRestored() {}
+
   });
 });

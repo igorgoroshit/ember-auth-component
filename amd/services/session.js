@@ -123,7 +123,7 @@ define('ember-simple-auth/services/session', ['exports', 'ember'], function (exp
       var _this = this,
           _arguments = arguments;
 
-      _ember['default'].A(['authenticationSucceeded', 'invalidationSucceeded']).forEach(function (event) {
+      _ember['default'].A(['authenticationSucceeded', 'invalidationSucceeded', 'restorationSucceeded']).forEach(function (event) {
         // the internal session won't be available in route unit tests
         var session = _this.get('session');
         if (session) {
