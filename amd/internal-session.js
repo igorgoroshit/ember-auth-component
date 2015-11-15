@@ -60,7 +60,8 @@ define('ember-simple-auth/internal-session', ['exports', 'ember'], function (exp
           delete restoredContent.authenticated.authenticator;
           _this3.container.lookup(authenticator).restore(restoredContent.authenticated).then(function (content) {
             _this3.set('content', restoredContent);
-            _this3._setup(authenticator, content, !!authenticator.triggerOnRestore);
+            _this3._setup(authenticator, content);
+            _this3.trigger('restorationSucceeded');
             resolve();
           }, function () {
             _ember['default'].Logger.debug('The authenticator "' + authenticator + '" rejected to restore the session - invalidating…');

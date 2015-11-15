@@ -20,8 +20,6 @@ define('ember-simple-auth/authenticators/devise', ['exports', 'ember', './base']
     @public
   */
   exports['default'] = _base['default'].extend({
-
-    triggerOnRestore: true,
     /**
       The endpoint on the server that the authentication request is sent to.
        @property serverTokenEndpoint

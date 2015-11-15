@@ -56,7 +56,7 @@ define('ember-simple-auth/mixins/application-route-mixin', ['exports', 'ember', 
       var _this = this,
           _arguments = arguments;
 
-      _ember['default'].A([['authenticationSucceeded', 'sessionAuthenticated'], ['invalidationSucceeded', 'sessionInvalidated']]).forEach(function (_ref) {
+      _ember['default'].A([['authenticationSucceeded', 'sessionAuthenticated'], ['invalidationSucceeded', 'sessionInvalidated'], ['restorationSucceeded', 'sessionRestored']]).forEach(function (_ref) {
         var _ref2 = _slicedToArray(_ref, 2);
 
         var event = _ref2[0];
