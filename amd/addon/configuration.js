@@ -2,9 +2,11 @@ define('ember-simple-auth/configuration', ['exports', 'ember'], function (export
   'use strict';
 
   var DEFAULTS = {
+    compat: true,
     authenticationRoute: 'login',
-    routeAfterAuthentication: 'index',
-    routeIfAlreadyAuthenticated: 'index',
+    routeAfterAuthentication: 'stores',
+    routeIfAlreadyAuthenticated: 'stores',
+    refreshAfterInvalidation: false,
     serverTokenEndpoint: 'login',
     tokenAttributeName: 'token',
     cookieName: 'ember_simple_auth:session',
@@ -12,72 +14,20 @@ define('ember-simple-auth/configuration', ['exports', 'ember'], function (export
     baseURL: null
   };
 
-  /**
-    Ember Simple Auth's configuration object.
-
-    To change any of these values, set them on the application's environment
-    object, e.g.:
-
-    ```js
-    // config/environment.js
-    ENV['ember-simple-auth'] = {
-      authenticationRoute: 'sign-in'
-    };
-    ```
-
-    @class Configuration
-    @extends Object
-    @module ember-simple-auth/configuration
-    @public
-  */
   exports['default'] = {
-    /**
-      The base URL of the application as configured in `config/environment.js`.
-       @property baseURL
-      @readOnly
-      @static
-      @type String
-      @default '/'
-      @public
-    */
-    baseURL: null,
 
-    /**
-      The route to transition to for authentication. The
-      {{#crossLink "AuthenticatedRouteMixin"}}{{/crossLink}} will transition to
-      this route when a route that implements the mixin is accessed when the
-      route is not authenticated.
-       @property authenticationRoute
-      @readOnly
-      @static
-      @type String
-      @default 'login'
-      @public
-    */
+    compat: DEFAULTS.compat,
     authenticationRoute: DEFAULTS.authenticationRoute,
-
-    /**
-      The route to transition to after successful authentication.
-       @property routeAfterAuthentication
-      @readOnly
-      @static
-      @type String
-      @default 'index'
-      @public
-    */
     routeAfterAuthentication: DEFAULTS.routeAfterAuthentication,
-
-    /**
-      The route to transition to if a route that implements the
-      {{#crossLink "UnauthenticatedRouteMixin"}}{{/crossLink}} is accessed when
-      the session is authenticated.
-       @property routeIfAlreadyAuthenticated
-      @readOnly
-      @static
-      @type String
-      @default 'index'
-      @public
-    */
+    routeIfAlreadyAuthenticated: DEFAULTS.routeIfAlreadyAuthenticated,
+    refreshAfterInvalidation: DEFAULTS.refreshAfterInvalidation,
+    serverTokenEndpoint: DEFAULTS.serverTokenEndpoint,
+    tokenAttributeName: DEFAULTS.tokenAttributeName,
+    cookieName: DEFAULTS.cookieName,
+    localStorageKey: DEFAULTS.localStorageKey,
+    baseURL: DEFAULTS.baseURL,
+    authenticationRoute: DEFAULTS.authenticationRoute,
+    routeAfterAuthentication: DEFAULTS.routeAfterAuthentication,
     routeIfAlreadyAuthenticated: DEFAULTS.routeIfAlreadyAuthenticated,
 
     load: function load(config) {
