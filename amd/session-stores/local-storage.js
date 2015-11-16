@@ -1,4 +1,4 @@
-define('ember-simple-auth/session-stores/local-storage', ['exports', 'ember', './base', '../utils/objects-are-equal'], function (exports, _ember, _base, _utilsObjectsAreEqual) {
+define('ember-simple-auth/session-stores/local-storage', ['exports', 'ember', './base', '../utils/objects-are-equal', './../configuration'], function (exports, _ember, _base, _utilsObjectsAreEqual, _configuration) {
   /* global localStorage */
   'use strict';
 
@@ -29,6 +29,7 @@ define('ember-simple-auth/session-stores/local-storage', ['exports', 'ember', '.
     key: 'ember_simple_auth:session',
 
     _setup: on('init', function () {
+      this.key = _configuration['default'].localStorageKey || this.key;
       this._bindToStorageEvents();
     }),
 
