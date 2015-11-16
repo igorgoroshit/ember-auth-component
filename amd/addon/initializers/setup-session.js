@@ -6,11 +6,12 @@ define('ember-simple-auth/initializers/setup-session', ['exports', 'ember', '../
   function setupSession(registry) {
     registry.register('session:main', _internalSession['default']);
 
-    // let store = LocalStorage;//'session-store:application';
+    var store = 'session-store:application';
     // if (Ember.testing) {
     //   store = 'session-store:test';
     //   registry.register(store, Ephemeral);
     // }
-    (0, _utilsInject['default'])(registry, 'session:main', 'store', _sessionStoresLocalStorage['default']);
+    registry.registry('session-store:application', _sessionStoresLocalStorage['default']);
+    (0, _utilsInject['default'])(registry, 'session:main', 'store', store);
   }
 });
