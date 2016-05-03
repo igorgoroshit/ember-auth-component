@@ -1,4 +1,4 @@
-define('ember-simple-auth/authenticators/devise', ['exports', 'ember', './base'], function (exports, _ember, _base) {
+define('ember-simple-auth/authenticators/devise', ['exports', 'ember', './base', './../configuration'], function (exports, _ember, _base, _configuration) {
   'use strict';
 
   var RSVP = _ember['default'].RSVP;
@@ -72,11 +72,9 @@ define('ember-simple-auth/authenticators/devise', ['exports', 'ember', './base']
       @public
     */
     restore: function restore(data) {
-      var _getProperties = this.getProperties('tokenAttributeName', 'identificationAttributeName');
-
-      var tokenAttributeName = _getProperties.tokenAttributeName;
-      var identificationAttributeName = _getProperties.identificationAttributeName;
-
+      var tokenAttributeName = _configuration['default'].tokenAttributeName;
+      var identificationAttributeName = _configuration['default'].identificationAttributeName;
+      //this.getProperties('tokenAttributeName', 'identificationAttributeName');
       var tokenAttribute = get(data, tokenAttributeName);
       var identificationAttribute = get(data, identificationAttributeName);
       return new RSVP.Promise(function (resolve, reject) {
@@ -109,10 +107,10 @@ define('ember-simple-auth/authenticators/devise', ['exports', 'ember', './base']
       var _this = this;
 
       return new RSVP.Promise(function (resolve, reject) {
-        var _getProperties2 = _this.getProperties('resourceName', 'identificationAttributeName');
+        var _getProperties = _this.getProperties('resourceName', 'identificationAttributeName');
 
-        var resourceName = _getProperties2.resourceName;
-        var identificationAttributeName = _getProperties2.identificationAttributeName;
+        var resourceName = _getProperties.resourceName;
+        var identificationAttributeName = _getProperties.identificationAttributeName;
 
         var data = {};
         data[resourceName] = { password: password };
@@ -144,7 +142,8 @@ define('ember-simple-auth/authenticators/devise', ['exports', 'ember', './base']
       @protected
     */
     makeRequest: function makeRequest(data) {
-      var serverTokenEndpoint = this.get('serverTokenEndpoint');
+      var serverTokenEndpoint = _configuration['default'].serverTokenEndpoint;
+
       return _ember['default'].$.ajax({
         url: serverTokenEndpoint,
         type: 'POST',

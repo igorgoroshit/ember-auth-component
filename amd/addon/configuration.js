@@ -4,9 +4,9 @@ define('ember-simple-auth/configuration', ['exports', 'ember'], function (export
   var DEFAULTS = {
     compat: true,
     authenticationRoute: 'login',
-    routeAfterAuthentication: 'stores',
-    routeIfAlreadyAuthenticated: 'stores',
-    refreshAfterInvalidation: false,
+    routeAfterAuthentication: 'index',
+    routeIfAlreadyAuthenticated: 'index',
+    refreshAfterInvalidation: true,
     serverTokenEndpoint: 'login',
     tokenAttributeName: 'token',
     cookieName: 'ember_simple_auth:session',
@@ -26,9 +26,6 @@ define('ember-simple-auth/configuration', ['exports', 'ember'], function (export
     cookieName: DEFAULTS.cookieName,
     localStorageKey: DEFAULTS.localStorageKey,
     baseURL: DEFAULTS.baseURL,
-    authenticationRoute: DEFAULTS.authenticationRoute,
-    routeAfterAuthentication: DEFAULTS.routeAfterAuthentication,
-    routeIfAlreadyAuthenticated: DEFAULTS.routeIfAlreadyAuthenticated,
 
     load: function load(config) {
       var wrappedConfig = _ember['default'].Object.create(config);

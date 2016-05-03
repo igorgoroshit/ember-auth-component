@@ -1,4 +1,4 @@
-define('ember-simple-auth/authorizers/devise', ['exports', 'ember', './base'], function (exports, _ember, _base) {
+define('ember-simple-auth/authorizers/devise', ['exports', 'ember', './base', './../configuration'], function (exports, _ember, _base, _configuration) {
   'use strict';
 
   var isEmpty = _ember['default'].isEmpty;
@@ -53,10 +53,8 @@ define('ember-simple-auth/authorizers/devise', ['exports', 'ember', './base'], f
       @public
     */
     authorize: function authorize(data, block) {
-      var _getProperties = this.getProperties('tokenAttributeName', 'identificationAttributeName');
-
-      var tokenAttributeName = _getProperties.tokenAttributeName;
-      var identificationAttributeName = _getProperties.identificationAttributeName;
+      var tokenAttributeName = _configuration['default'].tokenAttributeName;
+      var identificationAttributeName = _configuration['default'].identificationAttributeName;
 
       var userToken = data[tokenAttributeName];
       var userIdentification = data[identificationAttributeName];
