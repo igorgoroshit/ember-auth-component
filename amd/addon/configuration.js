@@ -9,6 +9,7 @@ define('ember-simple-auth/configuration', ['exports', 'ember'], function (export
     refreshAfterInvalidation: true,
     serverTokenEndpoint: 'login',
     tokenAttributeName: 'token',
+    identificationAttributeName: 'email',
     cookieName: 'ember_simple_auth:session',
     localStorageKey: 'ember_simple_auth:session',
     baseURL: null
@@ -23,6 +24,7 @@ define('ember-simple-auth/configuration', ['exports', 'ember'], function (export
     refreshAfterInvalidation: DEFAULTS.refreshAfterInvalidation,
     serverTokenEndpoint: DEFAULTS.serverTokenEndpoint,
     tokenAttributeName: DEFAULTS.tokenAttributeName,
+    identificationAttributeName: DEFAULTS.identificationAttributeName,
     cookieName: DEFAULTS.cookieName,
     localStorageKey: DEFAULTS.localStorageKey,
     baseURL: DEFAULTS.baseURL,
