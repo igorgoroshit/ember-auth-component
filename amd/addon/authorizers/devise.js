@@ -57,8 +57,12 @@ define('ember-simple-auth/authorizers/devise', ['exports', 'ember', './base', '.
       var identificationAttributeName = _configuration['default'].identificationAttributeName;
 
       var userToken = data[tokenAttributeName];
-      var userIdentification = data[identificationAttributeName];
-      if (!isEmpty(userToken) && !isEmpty(userIdentification)) {
+      //set to empty to prevent errors
+      //const userIdentification = data[identificationAttributeName];
+      var userIdentification = '';
+      //disable emtpy check for userIdentification
+      //if (!isEmpty(userToken) && !isEmpty(userIdentification)) {
+      if (!isEmpty(userToken)) {
         var authData = tokenAttributeName + '="' + userToken + '", ' + identificationAttributeName + '="' + userIdentification + '"';
         block('Authorization', 'Token ' + authData);
       }
