@@ -144,12 +144,16 @@ define('ember-simple-auth/authenticators/devise', ['exports', 'ember', './base',
     makeRequest: function makeRequest(data) {
       var serverTokenEndpoint = _configuration['default'].serverTokenEndpoint;
 
+      var prevBeforeSend = function prevBeforeSend() {};
+      if (_ember['default'].$.ajaxSettings.beforeSend) prevBeforeSend = _ember['default'].$.ajaxSettings.beforeSend;
+
       return _ember['default'].$.ajax({
         url: serverTokenEndpoint,
         type: 'POST',
         dataType: 'json',
         data: data,
         beforeSend: function beforeSend(xhr, settings) {
+          prevBeforeSend(xhr, settings);
           xhr.setRequestHeader('Accept', settings.accepts.json);
         }
       });
